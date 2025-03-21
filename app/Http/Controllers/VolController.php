@@ -13,7 +13,11 @@ class VolController extends Controller
      */
     public function index()
     {
-        //
+        // $vols = Vol::all();
+        // $vols = Vol::paginate(5);
+        // return view('Vols.index' , compact('vols'));
+        $vols = Vol::with('aeroportDepart', 'aeroportArrivee')->paginate(7);
+        return view('Vols.index', compact('vols'));
     }
 
     /**
@@ -21,7 +25,7 @@ class VolController extends Controller
      */
     public function create()
     {
-        //
+        return view('Vols.create');
     }
 
     /**
@@ -37,7 +41,7 @@ class VolController extends Controller
      */
     public function show(Vol $vol)
     {
-        //
+        return view('Vols.show', compact('vol'));
     }
 
     /**
