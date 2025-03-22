@@ -12,7 +12,19 @@ class Aeroport extends Model
     protected $fillable = ['nom', 'code_iata', 'ville', 'pays'];
     protected $table = 'aeroports';
 
-    public function Vols (){
+    public function Vols()
+    {
         return $this->hasMany(Vol::class);
+    }
+
+
+    public function VolsDepart()
+    {
+        return $this->hasMany(Vol::class, 'aeroport_depart_id');
+    }
+
+    public function VolsArrivee()
+    {
+        return $this->hasMany(Vol::class, 'aeroport_arrivee_id');
     }
 }

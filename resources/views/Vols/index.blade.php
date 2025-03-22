@@ -6,7 +6,7 @@
 
 
     <div class="relative overflow-x-auto">
-        <div class="my-6">
+        <div class="mb-6 mt-2">
             <a href="{{ route('vols.create') }}" class="bg-blue-900 text-gray-100 px-10 py-2 rounded-2xl">Ajouter un vols</a>
 
         </div>
@@ -62,21 +62,21 @@
                         <td class="px-6 py-4">
                             <span
                                 class="@switch($vol->statut)
-           @case('ouvert')
-        bg-green-500
-        @break
-    @case('fermé')
-        bg-gray-500
-        @break
-    @case('annule')
-        bg-red-500
-        @break
-    @case('retarde')
-        bg-amber-500
-        @break
-    @default
-        bg-blue-500
-        @endswitch text-gray-200 px-6 py-1 rounded-2xl">{{ $vol->statut }}</span>
+                                       @case('ouvert')
+                                    bg-green-500
+                                    @break
+                                @case('fermé')
+                                    bg-gray-500
+                                    @break
+                                @case('annule')
+                                    bg-red-500
+                                    @break
+                                @case('retarde')
+                                    bg-amber-500
+                                    @break
+                                @default
+                                    bg-blue-500
+                                    @endswitch text-gray-200 px-6 py-1 rounded-2xl">{{ $vol->statut }}</span>
 
                         </td>
                         <td class="px-6 py-4">

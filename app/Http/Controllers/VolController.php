@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Vol;
 use App\Http\Requests\StoreVolRequest;
 use App\Http\Requests\UpdateVolRequest;
+use App\Models\Aeroport;
 
 class VolController extends Controller
 {
@@ -25,7 +26,9 @@ class VolController extends Controller
      */
     public function create()
     {
-        return view('Vols.create');
+        $aeroports = Aeroport::all();
+        $status = Vol::Pluck('statut')->unique();
+        return view('Vols.create', compact('aeroports', 'status'));
     }
 
     /**
@@ -33,7 +36,8 @@ class VolController extends Controller
      */
     public function store(StoreVolRequest $request)
     {
-        //
+        Vol::create($request->all());
+        return redirect()->route('vols.index');
     }
 
     /**
